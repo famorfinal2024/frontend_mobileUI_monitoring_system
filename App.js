@@ -1,20 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import DashboardScreen from './screens/DashboardScreen';
+import BottomNavigation from './components/BottomNavigation';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.app}>
+      <StatusBar style="light" />
+
+      <View style={styles.content}>
+        <DashboardScreen />
+      </View>
+
+      <BottomNavigation />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  app: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#222222',
+  },
+  content: {
+    flex: 1,
+    paddingBottom: 80, // space for bottom navigation
   },
 });
