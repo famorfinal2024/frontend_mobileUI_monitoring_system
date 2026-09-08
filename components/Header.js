@@ -6,7 +6,7 @@ const Header = ({ title = 'Smart Cornfields' }) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.left}>
-				<Image source={require('../assets/icon.png')} style={styles.logo} />
+				<Image source={require('../assets/logo.jpg')} style={styles.logo} />
 			</View>
 
 			<Text style={styles.title}>{title}</Text>

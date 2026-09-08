@@ -4,19 +4,19 @@ import colors from '../styles/colors';
 
 const Tab = ({ label, active }) => (
   <TouchableOpacity style={styles.tab} activeOpacity={0.7}>
-    <Text style={[styles.icon, active && styles.activeIcon]}>🏠</Text>
+    <Text style={[styles.icon, active && styles.activeIcon]}>{label === 'Home' ? '⌂' : label === 'Mix check' ? '⚗' : label === 'Dispense' ? '▷' : label === 'History' ? '◴' : '♧'}</Text>
     <Text style={[styles.label, active && styles.activeLabel]}>{label}</Text>
   </TouchableOpacity>
 );
 
-const BottomNavigation = () => {
+const BottomNavigation = ({ activeTab = 'Home' }) => {
   return (
     <View style={styles.container}>
-      <Tab label="Home" active />
-      <Tab label="Mix check" />
-      <Tab label="Dispense" />
-      <Tab label="History" />
-      <Tab label="Alert" />
+      <Tab label="Home" active={activeTab === 'Home'} />
+      <Tab label="Mix check" active={activeTab === 'Mix check'} />
+      <Tab label="Dispense" active={activeTab === 'Dispense'} />
+      <Tab label="History" active={activeTab === 'History'} />
+      <Tab label="Alert" active={activeTab === 'Alert'} />
     </View>
   );
 };
