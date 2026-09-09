@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import DispenseScreen from './screens/DispenseScreen';
+import HistoryScreen from './screens/HistoryScreen';
 import BottomNavigation from './components/BottomNavigation';
 
 export default function App() {
@@ -10,10 +10,10 @@ export default function App() {
       <StatusBar style="light" />
 
       <View style={styles.content}>
-        <DispenseScreen />
+        <HistoryScreen />
       </View>
 
-      <BottomNavigation activeTab="Dispense" />
+      <BottomNavigation activeTab="History" />
     </View>
   );
 }
