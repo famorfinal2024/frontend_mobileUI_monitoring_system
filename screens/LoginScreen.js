@@ -10,7 +10,7 @@ import {
 import LoginInput from '../components/LoginInput';
 import colors from '../styles/colors';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
 	const [email, setEmail] = useState('farmer@example.com');
 	const [password, setPassword] = useState('farmerspassword');
 	const [showPassword, setShowPassword] = useState(false);
@@ -46,13 +46,20 @@ const LoginScreen = () => {
 						<Text style={styles.link}>Forgot password?</Text>
 					</TouchableOpacity>
 
-					<TouchableOpacity style={styles.signInButton} activeOpacity={0.8}>
+					<TouchableOpacity
+						style={styles.signInButton}
+						activeOpacity={0.8}
+						onPress={() => navigation.navigate('Dashboard')}
+					>
 						<Text style={styles.signInText}>Sign in</Text>
 					</TouchableOpacity>
 
 					<View style={styles.registerRow}>
 						<Text style={styles.registerPrompt}>No account? </Text>
-						<TouchableOpacity activeOpacity={0.7}>
+						<TouchableOpacity
+							activeOpacity={0.7}
+							onPress={() => navigation.navigate('Register')}
+						>
 							<Text style={styles.link}>Register here</Text>
 						</TouchableOpacity>
 					</View>

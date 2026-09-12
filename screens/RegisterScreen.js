@@ -3,7 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } fr
 import RegisterInput from '../components/RegisterInput';
 import colors from '../styles/colors';
 
-const RegisterScreen = () => {
+const RegisterScreen = ({ navigation }) => {
 	const [name, setName] = useState('');
 	const [gmail, setGmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -58,13 +58,20 @@ const RegisterScreen = () => {
 						onIconPress={() => setShowConfirmPassword((visible) => !visible)}
 					/>
 
-					<TouchableOpacity style={styles.signUpButton} activeOpacity={0.8}>
+					<TouchableOpacity
+						style={styles.signUpButton}
+						activeOpacity={0.8}
+						onPress={() => navigation.navigate('Dashboard')}
+					>
 						<Text style={styles.signUpText}>Sign up</Text>
 					</TouchableOpacity>
 
 					<View style={styles.loginRow}>
 						<Text style={styles.loginPrompt}>Already registered? </Text>
-						<TouchableOpacity activeOpacity={0.7}>
+						<TouchableOpacity
+							activeOpacity={0.7}
+							onPress={() => navigation.navigate('Login')}
+						>
 							<Text style={styles.link}>Sign in</Text>
 						</TouchableOpacity>
 					</View>
