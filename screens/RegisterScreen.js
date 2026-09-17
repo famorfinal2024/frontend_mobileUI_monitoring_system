@@ -61,7 +61,7 @@ const RegisterScreen = ({ navigation }) => {
 					<TouchableOpacity
 						style={styles.signUpButton}
 						activeOpacity={0.8}
-						onPress={() => navigation.navigate('Dashboard')}
+						onPress={() => navigation.replace('MainApp')}
 					>
 						<Text style={styles.signUpText}>Sign up</Text>
 					</TouchableOpacity>

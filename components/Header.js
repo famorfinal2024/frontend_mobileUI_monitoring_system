@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import colors from '../styles/colors';
 
-const Header = ({ title = 'Smart Cornfields' }) => {
+const Header = ({ title = 'Smart Cornfields', navigation }) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.left}>
@@ -11,9 +11,13 @@ const Header = ({ title = 'Smart Cornfields' }) => {
 
 			<Text style={styles.title}>{title}</Text>
 
-			<View style={styles.avatar}>
+			<TouchableOpacity
+				style={styles.avatar}
+				onPress={() => navigation && navigation.navigate('Profile')}
+				activeOpacity={0.75}
+			>
 				<Text style={styles.avatarText}>BF</Text>
-			</View>
+			</TouchableOpacity>
 		</View>
 	);
 };

@@ -49,7 +49,7 @@ const LoginScreen = ({ navigation }) => {
 					<TouchableOpacity
 						style={styles.signInButton}
 						activeOpacity={0.8}
-						onPress={() => navigation.navigate('Dashboard')}
+						onPress={() => navigation.replace('MainApp')}
 					>
 						<Text style={styles.signInText}>Sign in</Text>
 					</TouchableOpacity>

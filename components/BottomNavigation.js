@@ -2,42 +2,50 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import colors from '../styles/colors';
 
-const Tab = ({ label, active }) => (
-  <TouchableOpacity style={styles.tab} activeOpacity={0.7}>
-    <Text style={[styles.icon, active && styles.activeIcon]}>{label === 'Home' ? '⌂' : label === 'Mix check' ? '⚗' : label === 'Dispense' ? '▷' : label === 'History' ? '◴' : '♧'}</Text>
-    <Text style={[styles.label, active && styles.activeLabel]}>{label}</Text>
-  </TouchableOpacity>
-);
+const tabs = [
+  { name: 'Dashboard', icon: '⌂' },
+  { name: 'Mix Check', icon: '⚗' },
+  { name: 'Dispense', icon: '▷' },
+  { name: 'History', icon: '◴' },
+  { name: 'Alerts', icon: '♧' },
+];
 
-const BottomNavigation = ({ activeTab = 'Home' }) => {
+const BottomNavigation = ({ activeTab = 'Dashboard', onTabPress }) => {
   return (
-    <View style={styles.container}>
-      <Tab label="Home" active={activeTab === 'Home'} />
-      <Tab label="Mix check" active={activeTab === 'Mix check'} />
-      <Tab label="Dispense" active={activeTab === 'Dispense'} />
-      <Tab label="History" active={activeTab === 'History'} />
-      <Tab label="Alert" active={activeTab === 'Alert'} />
+    <View style={styles.bottomNavigation}>
+      {tabs.map((tab) => {
+        const active = activeTab === tab.name;
+
+        return (
+          <TouchableOpacity
+            key={tab.name}
+            style={styles.navItem}
+            onPress={() => onTabPress(tab.name)}
+            activeOpacity={0.7}
+          >
+            <Text style={[styles.icon, active && styles.activeIcon]}>{tab.icon}</Text>
+            <Text style={[styles.label, active && styles.activeLabel]}>{tab.name}</Text>
+          </TouchableOpacity>
+        );
+      })}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    height: 72,
+  bottomNavigation: {
+    minHeight: 70,
     backgroundColor: '#1f1f1f',
     borderTopWidth: 1,
     borderTopColor: colors.border,
     flexDirection: 'row',
-    justifyContent: 'space-around',
     alignItems: 'center',
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
   },
-  tab: {
+  navItem: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 8,
   },
   icon: {
     fontSize: 18,
@@ -50,6 +58,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: colors.mutedText,
     marginTop: 4,
+    textAlign: 'center',
   },
   activeLabel: {
     color: colors.primary,

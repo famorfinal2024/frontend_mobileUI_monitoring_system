@@ -12,10 +12,10 @@ const events = [
   { date: 'May 20', time: '10:05 PM', volume: '7.8 L', status: 'safe' },
 ];
 
-const HistoryScreen = () => {
+const HistoryScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safe}>
-      <Header title="Usage history" />
+      <Header title="Usage history" navigation={navigation} />
 
       <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
         <Text style={styles.total}>THIS WEEK&nbsp; 41.5 L TOTAL</Text>

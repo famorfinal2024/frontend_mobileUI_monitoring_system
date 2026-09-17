@@ -6,7 +6,7 @@ import VolumeSelector from '../components/VolumeSelector';
 import DispenseButton from '../components/DispenseButton';
 import colors from '../styles/colors';
 
-const DispenseScreen = () => {
+const DispenseScreen = ({ navigation }) => {
   const [selectedVolume, setSelectedVolume] = useState(10);
   const [status, setStatus] = useState('Ready to dispense');
 
@@ -27,7 +27,7 @@ const DispenseScreen = () => {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <Header title="Dispense water" />
+      <Header title="Dispense water" navigation={navigation} />
 
       <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
         <Text style={styles.sectionTitle}>MANUAL DISPENSE</Text>

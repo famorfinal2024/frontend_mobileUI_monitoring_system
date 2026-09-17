@@ -6,12 +6,12 @@ import ParameterStatus from '../components/ParameterStatus';
 import RecommendationCard from '../components/RecommendationCard';
 import colors from '../styles/colors';
 
-const MixCheckScreen = () => {
+const MixCheckScreen = ({ navigation }) => {
   const [checkKey, setCheckKey] = useState(0);
 
   return (
     <SafeAreaView style={styles.safe}>
-      <Header title="Mixing Check" />
+      <Header title="Mixing Check" navigation={navigation} />
 
       <ScrollView
         key={checkKey}

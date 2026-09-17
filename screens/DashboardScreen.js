@@ -6,7 +6,7 @@ import TankCard from '../components/TankCard';
 import AlertCard from '../components/AlertCard';
 import colors from '../styles/colors';
 
-const DashboardScreen = () => {
+const DashboardScreen = ({ navigation }) => {
 	// Sample/static values per request
 	const ph = { value: 6.1, unit: '', subtitle: 'optimal: 5.5-6.5', status: 'safe' };
 	const tds = { value: 520, unit: 'ppm', subtitle: '', status: 'elevated' };
@@ -15,7 +15,7 @@ const DashboardScreen = () => {
 
 	return (
 		<SafeAreaView style={styles.safe}>
-			<Header />
+			<Header navigation={navigation} />
 
 			<ScrollView contentContainerStyle={styles.container}>
 				<Text style={styles.sectionTitle}>WATER QUALITY</Text>

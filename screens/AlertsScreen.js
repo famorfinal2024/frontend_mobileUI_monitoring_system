@@ -31,10 +31,10 @@ const earlierAlerts = [
 	},
 ];
 
-const AlertsScreen = () => {
+const AlertsScreen = ({ navigation }) => {
 	return (
 		<SafeAreaView style={styles.safe}>
-			<Header title="Alerts" />
+			<Header title="Alerts" navigation={navigation} />
 
 			<ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
 				<Text style={styles.sectionTitle}>UNREAD</Text>

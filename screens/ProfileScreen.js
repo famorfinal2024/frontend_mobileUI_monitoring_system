@@ -3,14 +3,18 @@ import { SafeAreaView, ScrollView, StyleSheet, Switch, Text, TouchableOpacity, V
 import ProfileOption from '../components/ProfileOption';
 import colors from '../styles/colors';
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }) => {
   const [darkMode, setDarkMode] = useState(true);
 
   return (
     <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <View style={styles.profileArea}>
-          <TouchableOpacity style={styles.backButton} activeOpacity={0.75}>
+          <TouchableOpacity
+            style={styles.backButton}
+            activeOpacity={0.75}
+            onPress={() => navigation.goBack()}
+          >
             <Text style={styles.backArrow}>‹</Text>
           </TouchableOpacity>
 
